@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="libs/angular.min.js"></script>
+  <script>
+    /*
+     * 开发页面就是在开发应用，应用右被angular 进行管理，以模块化的方式进行管理
+     * 在angular 里面开发这个模块，它又以mvc 的模式去对我们的代码进行分层.  mvc
+     * view 对应的视图， controller 帮助view 去找到  model
+     *
+     * view 对应的是控制器，控制对应的model进行关联
+     * 在页面上面对应有很多是标签都是视图view， 这些标签view 他们又有嵌套关系
+     * 这就导致controller 关联的 $scope 也有层级关系 就会形成这种作用域链的形式
+     * 作用域:限定这个名字的可用性的代码范围就是这个名字的作用域
+     *
+     * 其中在最顶层的，我们叫做根作用域，如果我们以后的数据要在整个应用的范围内进行共享
+     * 我就把这个数据绑在根作用域上面.
+     * 其中，我们可以通过 ng-init 指令给跟作用域初始化一些数据.
+     * */
+    var App=angular.module("app",[]);
+    
+    App.controller("appController1",["$scope",function($scope){
+      $scope.username="小旋风";
+    }]);
+    App.controller("appController2",["$scope",function($scope){
+      $scope.username="黑旋风";
+    }]);
+    App.controller("appController3",["$scope",function($scope){
+      $scope.username="龙卷风";
+    }]);
+  </script>
+</head>
+<body ng-app="app" ng-controller="appController1" ng-init="name='zhangsan';age=11">
+{{username}}
+<div ng-controller="appController2">
+  {{username}}
+  <p ng-controller="appController3">
+    {{username}}
+  <p>
+  <h1>
+    {{name}}
+    {{age}}
+  </h1>
+  </p>
+  </p>
+</div>
+
+</body>
+</html>

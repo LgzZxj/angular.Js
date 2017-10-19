@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="libs/angular.min.js"></script>
+  <style>
+    p.active{
+      color: red;
+      font-size: 20px;
+    }
+  </style>
+  <script>
+    var App=angular.module("app",[]);
+    App.controller("appController",["$scope",function($scope){
+  
+      $scope.active={active:"aa"=="aa"};
+      
+    }]);
+  
+  
+  </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+<!--
+            ng-class 添加类名
+            用来控制元素的的样式。
+            ng-class 对应的到angular 底层是一个函数，函数的参数对应的是字符串
+            ng-class 对应的函数接收两种类型的参数，
+                    1：字符串
+                    2：对象 {} 接收的参数还可以是一个对象
+                            key 作为类名
+                            对应的值是boolean 类型
+                            使用添加key 作为类名.
+        -->
+
+
+<p ng-class="{{'{active:true}'}}">ng-class：控制元素的的样式。</p>
+<p ng-class="active">ng-class：控制元素的的样式。</p>
+
+<p ng-class="{active:true}">ng-class：控制元素的的样式。</p>
+
+</body>
+</html>

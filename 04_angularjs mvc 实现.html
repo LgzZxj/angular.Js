@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mvc 模式</title>
+    <script src="libs/angular.min.js"></script>
+    <script>
+
+            var App=angular.module("app",[]);
+
+            /*
+            * 以mvc 的方式去管理我们的代码.
+            * m model $scope
+            * v view 视图 (标签)
+            * c 视图要使用到那些数据，我们必须要找到它的model，通过控制器找模型，管理.
+            * 我们使用属性  ng-controller  视图关联控制器.
+            * */
+
+            /*
+            * 控制器去关联模型
+            * 1:参数，控制器的名称，
+            * 2：我要关联的模型 模型就是$scope 数据
+            * */
+            App.controller("appController",["$scope",function($scope){
+                        //真实的开发，数据都在后台，ajax 去获取，然后绑在$scope 上面.
+                        //$scope 就是model
+            }])
+
+
+
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <div></div>
+</body>
+</html>

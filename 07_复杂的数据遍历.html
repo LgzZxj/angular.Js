@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="libs/angular.min.js"></script>
+  <style>
+    td{
+      border: 1px solid red ;
+    }
+  </style>
+  <script>
+    var App=angular.module("app",[]);
+    App.controller("appController",["$scope",function ($scope) {
+      
+      $scope.list=[{username:"liyifei",age:"30"},
+                   {username:"linzhiling",age:"41"}
+              ];
+      $scope.attr=["zhangsan","lisi","wanger","lisi"]
+      
+    }])
+  </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+<table>
+  <tr >
+    <td>姓名</td>
+    <td>年龄</td>
+  </tr>
+  <!--使用指令  ng-repeat 遍历这个数组.-->
+  <tr ng-repeat="item in list">
+    <td> {{item.username}} </td>
+    <td> {{item.age}} </td>
+  </tr>
+</table>
+<ul>
+  <!--使用ng-repeat 去遍历数组当中的元素，如果数组当中的元素有重复，直接遍历会出错.-->
+  <!--官网给了一个完美的答案  遍历的时候在后面添加 track by $index 就可以解决.-->
+  <li ng-repeat="item in attr track by $index">
+    {{item}}
+  </li>
+</ul>
+
+</body>
+</html>

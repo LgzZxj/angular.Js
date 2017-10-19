@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular 的双向数据绑定</title>
+    <script src="libs/angular.min.js"></script>
+    <script>
+             var App=angular.module("app",[]);
+             App.controller("appController",["$scope",function($scope){
+
+               
+             }]);
+
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+        <!--{{}} 它会在$scope 上面去找msg-->
+       <p>{{msg}}</p>
+       <!-- //我现在要实现将视图的数据，流向到model 实际上就是页面上面的数据自动到 $scope-->
+        <!--怎么能够将view 的数据流向到model
+        使用一个ng-model 的属性
+        相当于在$scope 上面添加了一个属性 msg，它的值就是用户输入的值.
+        我在页面上面输入值 view 的数据流向到 model  view---model
+        angular 会实时监听model $scope 的变化，如果这个$scope 有变化
+        就会自动更新视图   model --view
+        双向数据绑定
+        市场上也说angular 是一个mvvm 的框架.  双向数据绑定的概念。
+        -->
+       <input type="text" ng-model="msg">
+</body>
+</html>

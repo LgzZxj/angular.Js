@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="libs/angular.min.js"></script>
+  <script>
+    var App=angular.module("app",[]);
+    App.controller("appController",["$scope",function($scope){
+      $scope.imagesrc="images/author.jpg";
+  
+      $scope.href="css/main.css";
+      
+    }]);
+  
+  
+  </script>
+  
+</head>
+<body ng-app="app" ng-controller="appController">
+<!--<img src="{{imagesrc}}" alt="">-->
+<!--
+    ng-src 属性， src 一般在什么时候用到. 加载第三方资源.
+          他们的区别在那里,一般情况下，我们图片的地址可能是从后台获取出来的。
+          也就是从$scope 上面取出来的.
+          src 属性 src 属性对应的值从 $scope 上面获取到的，就会发送两次请求.
+          ng-src 就不会去加载两次请求.
+       -->
+<img ng-src="images/author.jpg" alt="">
+<img ng-src="{{imagesrc}}" alt="">
+
+
+<!--ng-show 指令.用来控制当前元素是否显示-->
+<p ng-show="true">我是ng-show 指令.用来控制当前元素是否显示的</p>
+<!--ng-hide 隐藏 跟ng-show 一样，底层都是改当前元素的样式display 的值.
+-->
+<p ng-hide="false">我是ng-hide 指令</p>
+
+<!--
+        ng-if 指令 如果你false ，它会删除当前元素.
+-->
+<p ng-if="true">
+  你是ng-if 指令
+</p>
+
+{{href}}
+<li>1111</li>
+
+
+</body>
+</html>
+<link rel="stylesheet"  ng-href="{{href}}">

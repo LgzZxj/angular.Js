@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular 单项数据绑定</title>
+    <script src="libs/angular.min.js"></script>
+    <script>
+            //以模块化的方式去进行管理
+            var App=angular.module("itcastApp",[]);
+
+            //以mvc 的方式去分层这个页面的代码
+
+            //控制器关联模型
+            App.controller("appController",["$scope",function($scope){
+                    //$scope 是属于model
+                    //在页面上面将model 的数据 展示到视图层
+                    //如果真实开发通过ajax 去获取数据，然后绑在$scope 上面.
+                    //以数据和逻辑为核心，我们不用去管dom 的操作. 管理好我们的数据即可.
+                    $scope.username="zhangsan";
+                    $scope.sex="men";
+                    $scope.age="18";
+
+                    //我们现在的概念数据数据单项绑定
+
+                    //只要我们改变了$scope model 上面的数据，这个数据就会自动流向到视图
+                    //m  $scope这个的数据 ----》 view 单向流动.
+
+            }])
+
+
+
+    </script>
+</head>
+<body ng-app="itcastApp" ng-controller="appController">
+
+        <p>姓名：{{username}}</p>
+        <p>性别：{{sex}}</p>
+        <p>年龄：{{age}}</p>
+
+</body>
+</html>

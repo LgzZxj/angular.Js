@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="libs/angular.min.js"></script>
+  <script>
+    var App=angular.module("app",[]);
+    App.controller("appController",["$scope",function($scope){
+      
+    }]);
+  
+  
+  </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+
+<form action="">
+  <!--
+      disabled 是只读属性，只有有这个属性就会被禁用，跟这个属性的值没有关系.
+  -->
+  <input type="text" ng-disabled="false"> <br>
+  <!--readonly
+      ng-readonly 用来控制只读属性.
+  -->
+  <input type="text" ng-readonly="false"><br>
+  
+  <!--
+      ng-checked 去控制是否选中
+  -->
+  <input type="checkbox"  ng-checked="false"><br>
+  
+  <!--
+      selected 也是只读属性
+      ng-selected
+  -->
+  <select name="" id="">
+    <option value="">胡聪聪</option>
+    <option value="">潘明</option>
+    <option value="" ng-selected="true">小旋风</option>
+  </select>
+
+</form>
+
+</body>
+</html>

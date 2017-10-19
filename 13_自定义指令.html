@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>自定义指令</title>
+  <script src="libs/angular.min.js"></script>
+  <script>
+    var App=angular.module("app",[]);
+    /*
+     * angular 除了提供了一些内置的指令之外，还提供了接口让我们自定义指令.
+     * 我们一般都是怎么用指令.在页面.
+     * 定义指令，有四种类型的指令
+     * 比如我定义了一个hello 指定
+     * 1:属性的指令，指令是以属性的方式使用  <div hello></div>
+     * 2: 标签指令   <hello></hello>
+     * 3: 类名指令   <div class="hello"></div>
+     * 4: 注释指令   <!-- hello -->
+     * 怎么样去定义指令  App 对象    通过module 返回的
+     
+     * 提供了一个方法  directive 方法 来创建指令.
+     * 1:指令的名称
+     * 2：指令的行为
+     * */
+    App.directive("itcastHelloItheima",function(){
+      console.log("http://www.itcast.cn");
+      //指令的行为 返回的是一个对象.
+      return {
+        /*
+         * ECMA 要创建的指令支持的类型
+         * E  element   元素
+         * c  class     类名
+         * M  mark      注释
+         * A  Attribute 属性
+         * 支持这四种方式去调用我的指令.
+         * */
+        restrict:"ECMA",
+        replace:"true",
+        //模板里面的内容必须使用标签包起来.
+        template:"<font color='red'>你是不是真的快乐~~</font>"
+      };
+    });
+
+
+
+  </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+
+<!--驼峰命名.-->
+<itcast-hello-itheima></itcast-hello-itheima>
+<br>
+<br>
+<div itcast-hello-itheima></div>
+<br>
+<br>
+<div class="itcast-hello-itheima"></div>
+<br>
+<br>
+<!-- directive:itcast-hello-itheima -->
+<!--注释中两边必须留空格-->
+</body>
+</html>

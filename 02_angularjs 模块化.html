@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="libs/angular.min.js"></script>
+    <script>
+            /*
+            * 我们开发代码实际上就是开发应用，页面只是应用的一个部分
+            * 在angular 里面怎么在页面上面去定义一个应用.
+            * 我们使用ng-app 的属性去定义一个应用 属性是写在标签里面的
+            * ng-app 定义应用的边界
+            * angular 去管理这个应用，怎么去管理，以模块化的方式去进行管理.
+            * 要将这个应用转换成一个模块.
+            * angularjs 提供了一个对象angular ，对象下面有一个方法 module （初始化这个应用）
+            * */
+            /*
+            * 1:应用的名称
+            * 2:数组，app 是否依赖其它的模块.
+            * */
+            var App=angular.module("app",[]);
+            /*
+            * 我们在这个页面接下来怎么去写代码的问题.
+            * 假设这个页面代码多了之后，我们要对这个页面你的代码进行管理.
+            * 模式，叫做mvc 模式，就是按照代码的功能进行分类.
+            *
+            * */
+
+    </script>
+</head>
+<body ng-app="app">
+
+</body>
+</html>
